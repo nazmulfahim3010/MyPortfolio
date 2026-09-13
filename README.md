@@ -1,271 +1,131 @@
-# MD Nazmul Hasan Fahim — Software Engineering Portfolio
+# MD Nazmul Hasan Fahim | Portfolio
 
-[![Vercel Deployment](https://img.shields.io/badge/Vercel-Live%20Demo-black?style=for-the-badge&logo=vercel&logoColor=white)](https://nazmul-fahim-portfolio.vercel.app)
-[![Vite](https://img.shields.io/badge/Vite-6.x-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![JavaScript](https://img.shields.io/badge/ES6%2B-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-[![CSS3](https://img.shields.io/badge/Design_System-Custom_CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+Personal portfolio for **MD Nazmul Hasan Fahim**, a Software Engineering student, programmer, educator, and student leader. The portfolio presents four working themes: **Build, Solve, Teach, and Lead**.
 
-> A modern, editorial, agency-grade digital portfolio and engineering showcase for **MD Nazmul Hasan Fahim** — Software Engineering student (CGPA 3.91), programmer (C, C++, Python), educator (ACM Instructor, 5+ years mentorship), and student leader.
+The repository contains two portfolio editions:
 
----
+- **Root edition**: a Vite-powered, modular editorial portfolio with data-driven content, project case-study modals, scroll effects, and responsive styling.
+- **`port2/` edition**: a standalone, zero-build digital operating system concept with a cinematic intro, timeline navigation, interactive canvas effects, and expanded technical case studies.
 
-## 🌐 Live Demo & Deployment
+## Live Portfolio
 
-| Platform | Status | URL |
-| :--- | :--- | :--- |
-| **Vercel (Production)** | 🟢 Active | [https://nazmul-fahim-portfolio.vercel.app](https://nazmul-fahim-portfolio.vercel.app) |
-| **GitHub Repository** | 🟢 Public | [https://github.com/nazmulfahim3010/MyPortfolio](https://github.com/nazmulfahim3010/MyPortfolio) |
+- Production site: [nazmul-fahim-portfolio.vercel.app](https://nazmul-fahim-portfolio.vercel.app)
+- GitHub: [nazmulfahim3010/MyPortfolio](https://github.com/nazmulfahim3010/MyPortfolio)
 
-> **Note:** If your custom Vercel deployment URL differs (e.g., generated with a unique project hash), you can update the link in this README or point your custom domain in Vercel project settings.
+## Highlights
 
----
+- Editorial, responsive layout with custom typography and CSS design tokens
+- Modular vanilla JavaScript components loaded from `src/main.js`
+- Centralized portfolio content in `src/data/portfolioData.js`
+- Featured work and project case studies opened through accessible modal dialogs
+- Scroll-triggered reveals, a custom cursor, and a frame-based background canvas
+- Sections for software engineering, algorithms, technical skills, teaching, leadership, education, achievements, and knowledge sharing
+- SEO metadata, Open Graph/Twitter metadata, JSON-LD person data, and favicon support
+- `prefers-reduced-motion` handling in the root edition
 
-## 📖 Table of Contents
+## Technology
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Tech Stack & Architecture](#-tech-stack--architecture)
-- [Project Structure](#-project-structure)
-- [Getting Started & Run Instructions](#-getting-started--run-instructions)
-  - [Prerequisites](#prerequisites)
-  - [1. Clone Repository](#1-clone-repository)
-  - [2. Install Dependencies](#2-install-dependencies)
-  - [3. Run Local Development Server](#3-run-local-development-server)
-  - [4. Build for Production](#4-build-for-production)
-  - [5. Preview Production Build](#5-preview-production-build)
-- [How to Customize Portfolio Content](#-how-to-customize-portfolio-content)
-- [Deployment Guide](#-deployment-guide)
-  - [Deploying to Vercel](#deploying-to-vercel)
-  - [Deploying to GitHub Pages](#deploying-to-github-pages)
-- [Author & Contact](#-author--contact)
+### Root edition
 
----
+- [Vite](https://vitejs.dev/) 6
+- Modern JavaScript using native ES modules
+- Custom CSS with responsive layouts, animations, and design variables
+- Static assets served from `public/assets/`
 
-## 🌟 Overview
+### `port2/` edition
 
-This portfolio goes beyond conventional static templates. It is engineered with an editorial, magazine-grade visual aesthetic featuring:
-- High-contrast typography (**Space Grotesk**, **Plus Jakarta Sans**, **JetBrains Mono**).
-- Dynamic, data-driven modular architecture where all content lives in a single source of truth (`src/data/portfolioData.js`).
-- Deep case-study modals for technical projects with architectural breakdowns, problem statements, solutions, and key takeaways.
-- Focus on four core disciplines: **Build** (Software Engineering), **Solve** (Algorithms & Problem Solving), **Teach** (Education & Mentorship), and **Lead** (Institutional Leadership).
+- Semantic HTML
+- Vanilla CSS
+- Minimal vanilla JavaScript
+- No package installation or build step required
 
----
-
-## ⚡ Key Features
-
-1. **Editorial Magazine-Style Layout**: High-impact hero section with live telemetry status, academic metrics (CGPA 3.91), and role definitions.
-2. **Interactive Case Study Modals**: In-depth modal dialogs detailing problem analysis, architectural blueprints, tech stacks, and results.
-3. **Four-Discipline Matrix**: Highlighting core proficiencies in Low-level Systems (C/C++), Algorithmic Problem Solving, Pedagogy, and Institutional Leadership.
-4. **Cinematic & Scroll Interactions**: Page-wide Intersection Observer scroll animations, custom studio follower cursor, and background scroll canvas.
-5. **SEO & Structured Data**: Built-in JSON-LD schema for person profiles, Open Graph tags, and Twitter Cards for rich social preview.
-6. **Responsive & Accessible**: Mobile-first responsive breakpoints with `prefers-reduced-motion` compliance.
-
----
-
-## 🛠️ Tech Stack & Architecture
-
-- **Bundler & Dev Server:** [Vite 6](https://vitejs.dev/)
-- **Frontend Core:** Vanilla JavaScript (ES Modules, zero heavy framework overhead)
-- **Styling:** Custom Vanilla CSS Design System with CSS variables, glassmorphism, responsive grid/flex layouts, and smooth animations
-- **Typography:** JetBrains Mono, Space Grotesk, Plus Jakarta Sans (Google Fonts)
-- **Data Architecture:** Fully decoupled single source of truth in `src/data/portfolioData.js`
-
----
-
-## 📂 Project Structure
+## Project Structure
 
 ```text
 MyPortfolio/
-├── .github/
-│   └── workflows/
-│       └── static.yml              # GitHub Actions workflow for deployment
-├── public/
-│   └── assets/                     # Static assets (images, portrait, icons)
+├── index.html                 # Root edition HTML shell and SEO metadata
+├── package.json               # Vite scripts and development dependency
+├── public/assets/             # Images, video, and background frames
 ├── src/
-│   ├── components/                 # Modular UI components
-│   │   ├── About.js                # Asymmetric editorial bio & metadata blocks
-│   │   ├── Achievements.js         # Academic & organizational milestones
-│   │   ├── BackgroundScrollCanvas.js # Canvas scroll visual engine
-│   │   ├── CaseStudyModal.js       # Interactive case study dialog controller
-│   │   ├── CinematicIntro.js       # Film-style intro animation
-│   │   ├── ContactFooter.js        # Contact channels, socials & reach-out form
-│   │   ├── Cursor.js               # Studio custom trailing cursor
-│   │   ├── Disciplines.js          # The 4 Pillars (Build, Solve, Teach, Lead)
-│   │   ├── ExperienceEducation.js  # Chronological academic & leadership history
-│   │   ├── FeaturedProject.js      # Flagship algorithmic project showcase
-│   │   ├── FinalScreen.js          # Film closing screen
-│   │   ├── Hero.js                 # Magazine-cover hero section
-│   │   ├── Leadership.js           # Institutional roles & community impact
-│   │   ├── Navbar.js               # Dynamic blur header with mobile toggle
-│   │   ├── Projects.js             # Alternating project case study cards
-│   │   ├── ResearchContent.js      # YouTube & public knowledge sharing
-│   │   ├── ScrollExperience.js     # Scroll experience controller
-│   │   └── TechnicalSkills.js      # Categorized technical index
-│   ├── data/
-│   │   └── portfolioData.js        # 🌟 Single source of truth for all content
-│   ├── styles/
-│   │   └── main.css                # Global design system, variables & components
-│   ├── utils/
-│   │   └── scrollAnimations.js     # Intersection Observer scroll trigger engine
-│   └── main.js                     # Main application entry point & component mount
-├── index.html                      # HTML root & SEO metadata (JSON-LD)
-├── package.json                    # Dependencies and npm scripts
-└── README.md                       # Project documentation & run guide
+│   ├── components/            # Renderers for each portfolio section
+│   ├── data/portfolioData.js   # Single source of truth for root content
+│   ├── styles/main.css         # Root edition styles and design system
+│   ├── utils/                 # Shared interaction helpers
+│   └── main.js                 # Root application entry point
+├── port2/
+│   ├── index.html             # Standalone OS-style portfolio
+│   ├── main.js                # Canvas and interaction logic
+│   ├── style.css              # Standalone edition styling
+│   └── README.md              # Edition-specific documentation
+└── README.md                  # Repository documentation
 ```
 
----
+## Run the Root Edition
 
-## 🚀 Getting Started & Run Instructions
+### Requirements
 
-Follow these step-by-step instructions to clone, install, and run the project locally.
+- Node.js 18 or newer
+- npm 9 or newer
 
-### Prerequisites
+Install dependencies and start the development server:
 
-Make sure you have [Node.js](https://nodejs.org/) installed:
-- **Node.js**: v18.0.0 or later (v20+ / v24+ recommended)
-- **npm**: v9.0.0 or later
-
-Verify your local installation:
-```bash
-node -v
-npm -v
-```
-
----
-
-### 1. Clone Repository
-
-```bash
-git clone https://github.com/nazmulfahim3010/MyPortfolio.git
-cd MyPortfolio
-```
-
----
-
-### 2. Install Dependencies
-
-Install the required Vite dependencies:
 ```bash
 npm install
-```
-
----
-
-### 3. Run Local Development Server
-
-Start the Vite development server with Hot Module Replacement (HMR):
-```bash
 npm run dev
 ```
 
-Terminal will display the local URL:
-```text
-  VITE v6.x.x  ready in 250 ms
+Open the local URL printed by Vite, usually `http://localhost:5173/`.
 
-  ➜  Local:   http://localhost:5173/
-  ➜  Network: use --host to expose
-  ➜  press h + enter to show help
-```
+Create and preview a production build:
 
-Open `http://localhost:5173/` in your browser.
-
----
-
-### 4. Build for Production
-
-To bundle and minify assets for deployment:
 ```bash
 npm run build
-```
-
-This compiles optimized bundles to the `dist/` directory.
-
----
-
-### 5. Preview Production Build
-
-To locally test the production build from `dist/`:
-```bash
 npm run preview
 ```
 
----
+The production output is generated in `dist/`.
 
-## ✏️ How to Customize Portfolio Content
+## Run `port2/`
 
-All personal data, metrics, projects, and links are managed in a single file:
-👉 **`src/data/portfolioData.js`**
+The standalone edition can be opened directly at `port2/index.html`. For a local HTTP server, use either:
 
-| Section to Update | Property in `portfolioData.js` |
-| :--- | :--- |
-| **Profile & Bio** | `portfolioData.profile` (Name, CGPA, Roles, Bio) |
-| **Disciplines** | `portfolioData.disciplines` (Pillars & descriptions) |
-| **Featured Project** | `portfolioData.featuredProject` (Detailed case study) |
-| **Project Showcase** | `portfolioData.projects` (List of projects & case studies) |
-| **Technical Skills** | `portfolioData.skills` (Languages, tools, frameworks) |
-| **Leadership** | `portfolioData.leadership` (Roles & achievements) |
-| **Education** | `portfolioData.education` (Degrees & credentials) |
-| **Social Links & Email** | `portfolioData.contact.socials` (GitHub, LinkedIn, YouTube, Email) |
-
-Any edit in `portfolioData.js` automatically propagates across all components.
-
----
-
-## ☁️ Deployment Guide
-
-### Deploying to Vercel
-
-This project is fully pre-configured for instant deployment on [Vercel](https://vercel.com).
-
-#### Option A: Deploy via Vercel Dashboard (Recommended)
-1. Push your code to GitHub.
-2. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
-3. Import the `MyPortfolio` repository.
-4. Vercel automatically detects **Vite**:
-   - **Framework Preset:** `Vite`
-   - **Build Command:** `npm run build`
-   - **Output Directory:** `dist`
-   - **Install Command:** `npm install`
-5. Click **"Deploy"**. Your site will be live on `https://<your-project>.vercel.app`.
-
-#### Option B: Deploy via Vercel CLI
 ```bash
-# Install Vercel CLI globally (if not already installed)
-npm i -g vercel
-
-# Deploy to preview
-vercel
-
-# Deploy to production
-vercel --prod
+cd port2
+python -m http.server 8080
 ```
 
----
+or:
 
-### Deploying to GitHub Pages
+```bash
+cd port2
+npx serve .
+```
 
-A GitHub Actions workflow is included at `.github/workflows/static.yml`. To enable GitHub Pages:
-1. Navigate to your repository on GitHub.
-2. Go to **Settings** > **Pages**.
-3. Under **Build and deployment** > **Source**, select **GitHub Actions**.
-4. Pushes to the `main` branch will automatically deploy.
+Then open `http://localhost:8080/` or the URL printed by `serve`.
 
----
+## Updating Portfolio Content
 
-## 👨‍💻 Author & Contact
+For the root edition, edit [`src/data/portfolioData.js`](src/data/portfolioData.js). It contains the profile, disciplines, featured project, project list, technical skills, teaching, leadership, experience, education, achievements, research content, and contact links used by the component renderers.
 
-**MD Nazmul Hasan Fahim**  
-*Software Engineering Student • Programmer • Educator • Student Leader*
+For the standalone edition, update the semantic content directly in [`port2/index.html`](port2/index.html), and adjust behavior or visual treatment in [`port2/main.js`](port2/main.js) and [`port2/style.css`](port2/style.css).
 
-- **Live Portfolio (Vercel):** [nazmul-fahim-portfolio.vercel.app](https://nazmul-fahim-portfolio.vercel.app)
-- **GitHub:** [@nazmulfahim3010](https://github.com/nazmulfahim3010)
-- **LinkedIn:** [linkedin.com/in/nazmulfahim3010](https://linkedin.com/in/nazmulfahim3010)
-- **YouTube:** [@nazmulfahim3010](https://youtube.com/@nazmulfahim3010)
-- **Email:** [nazmulfahim3010@gmail.com](mailto:nazmulfahim3010@gmail.com)
+When adding images, video, or background frames to the root edition, place them under [`public/assets/`](public/assets/) and reference them with paths beginning with `/assets/`.
 
----
+## Deployment
 
-## 📄 License
+The root edition is a standard Vite static site. A Vercel deployment can use these defaults:
 
-This project is open source and available under the [MIT License](LICENSE).
+```text
+Build command:    npm run build
+Output directory: dist
+Install command:  npm install
+```
+
+The `port2/` edition is already static and can be hosted from any static web server. Choose the edition to publish as the site root based on the presentation you want to use.
+
+## Contact
+
+- GitHub: [@nazmulfahim3010](https://github.com/nazmulfahim3010)
+- LinkedIn: [linkedin.com/in/nazmulfahim3010](https://linkedin.com/in/nazmulfahim3010)
+- YouTube: [@nazmulfahim3010](https://youtube.com/@nazmulfahim3010)
+- Email: [nazmulfahim3010@gmail.com](mailto:nazmulfahim3010@gmail.com)
