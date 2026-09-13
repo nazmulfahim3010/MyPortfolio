@@ -128,4 +128,5 @@ The `port2/` edition is already static and can be hosted from any static web ser
 - GitHub: [@nazmulfahim3010](https://github.com/nazmulfahim3010)
 - LinkedIn: [linkedin.com/in/nazmulfahim3010](https://linkedin.com/in/nazmulfahim3010)
 - YouTube: [@nazmulfahim3010](https://youtube.com/@nazmulfahim3010)
+- Google Doc: [Project Document](https://docs.google.com/document/d/1CcRS_pAD9ieMVsRzG99kpmgaTmYdRgbdMKWL12oHOjs/edit?tab=t.0)
 - Email: [nazmulfahim3010@gmail.com](mailto:nazmulfahim3010@gmail.com)
