@@ -9,7 +9,7 @@ The repository contains two portfolio editions:
 
 ## Live Portfolio
 
-- Production site: [nazmul-fahim-portfolio.vercel.app](my-portfolio-ten-cyan-79.vercel.app)
+- Production site: [nazmul-fahim-portfolio.vercel.app](https://my-portfolio-ten-cyan-79.vercel.app/)
 - GitHub: [nazmulfahim3010/MyPortfolio](https://github.com/nazmulfahim3010/MyPortfolio)
 
 ## Highlights
