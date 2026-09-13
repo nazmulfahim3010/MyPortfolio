@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>MD NAZMUL HASAN FAHIM — SYSTEM / 001</title>
+  <meta name="title" content="MD NAZMUL HASAN FAHIM — SYSTEM / 001" />
+  <meta name="description" content="Personal digital operating system and engineering showcase of MD Nazmul Hasan Fahim. Software Engineering (CGPA 3.91), Systems, Pedagogy, and Leadership." />
+  <meta name="theme-color" content="#050508" />
+
+  <!-- Fonts: Space Grotesk (Editorial Display), Outfit (Bold Geometric OS), Plus Jakarta Sans (Body), JetBrains Mono (Technical Metadata) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body class="is-initializing">
+
+  <!-- =========================================================================
+       00. SUBTLE TECHNICAL BACKGROUND GRID & HUD COORDINATES
+       ========================================================================= -->
+  <div class="system-bg-grid" aria-hidden="true">
+    <div class="bg-grid-lines"></div>
+    <div class="hud-marker hud-tl">SYS / 2026.09<span class="hud-sep">::</span>LOC_01</div>
+    <div class="hud-marker hud-tr">LAT: 23.8103° N <span class="hud-dot"></span> LON: 90.4125° E</div>
+    <div class="hud-marker hud-bl">CORE_FREQ: 64Hz <span class="hud-sep">::</span> BUFFER: NOMINAL</div>
+    <div class="hud-marker hud-br" id="live-coords">X: 000 &nbsp; Y: 000</div>
+  </div>
+
+  <!-- Smooth Water Ripple Interactive Canvas -->
+  <canvas id="ripple-canvas" class="ripple-canvas" aria-hidden="true"></canvas>
+
+  <!-- =========================================================================
+       00. SUBTLE CUSTOM CURSOR
+       ========================================================================= -->
+  <div class="sys-cursor" id="sys-cursor" aria-hidden="true">
+    <div class="cursor-point"></div>
+    <div class="cursor-halo"></div>
+    <div class="cursor-label" id="cursor-label">OPEN →</div>
+  </div>
+
+  <!-- =========================================================================
+       00. OPENING SCREEN (INITIALIZATION SEQUENCE)
+       ========================================================================= -->
+  <div class="intro-screen" id="intro-screen" role="dialog" aria-modal="true" aria-label="System Initializing">
+    <div class="intro-container">
+      <div class="intro-tag">
+        <span class="intro-signal-dot"></span>
+        <span class="intro-tag-text">SYSTEM / 001</span>
+      </div>
+
+      <div class="intro-status" id="intro-status-line">
+        <span class="typewriter-text" id="typewriter-target">INITIALIZING IDENTITY...</span>
+      </div>
+
+      <div class="intro-main-title" id="intro-name">
+        <span class="char-reveal">MD NAZMUL HASAN FAHIM</span>
+      </div>
+
+      <div class="intro-sub-line" id="intro-pillars">
+        <span class="pillar-word">BUILD.</span>
+        <span class="pillar-word">SOLVE.</span>
+        <span class="pillar-word">TEACH.</span>
+      </div>
+
+      <div class="intro-action" id="intro-action">
+        <button class="btn-enter-system" id="btn-enter-system" aria-label="Enter Digital System">
+          <span>ENTER SYSTEM</span>
+          <span class="enter-arrow">→</span>
+        </button>
+        <span class="intro-skip-hint">PRESS [SPACE] OR CLICK TO INITIALIZE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       00. MINIMAL TIMELINE NAVIGATION (FIXED RIGHT EDGE)
+       ========================================================================= -->
+  <nav class="timeline-nav" id="timeline-nav" aria-label="System Timeline Navigation">
+    <div class="nav-track">
+      <div class="nav-indicator-bar" id="nav-indicator-bar"></div>
+      
+      <a href="#hero" class="nav-node active" data-section="hero" aria-label="Section 00: Overview">
+        <span class="node-index">00</span>
+        <span class="node-label">OVERVIEW</span>
+      </a>
+      <a href="#identity" class="nav-node" data-section="identity" aria-label="Section 01: Identity">
+        <span class="node-index">01</span>
+        <span class="node-label">IDENTITY</span>
+      </a>
+      <a href="#system" class="nav-node" data-section="system" aria-label="Section 02: System Diagram">
+        <span class="node-index">02</span>
+        <span class="node-label">SYSTEM</span>
+      </a>
+      <a href="#build" class="nav-node" data-section="build" aria-label="Section 03: Build Capabilities">
+        <span class="node-index">03</span>
+        <span class="node-label">BUILD</span>
+      </a>
+      <a href="#work" class="nav-node" data-section="work" aria-label="Section 04: Project Archive">
+        <span class="node-index">04</span>
+        <span class="node-label">WORK</span>
+      </a>
+      <a href="#teach" class="nav-node" data-section="teach" aria-label="Section 05: Teaching & Mentorship">
+        <span class="node-index">05</span>
+        <span class="node-label">TEACH</span>
+      </a>
+      <a href="#lead" class="nav-node" data-section="lead" aria-label="Section 06: Leadership Timeline">
+        <span class="node-index">06</span>
+        <span class="node-label">LEAD</span>
+      </a>
+      <a href="#connect" class="nav-node" data-section="connect" aria-label="Section 07: Connection">
+        <span class="node-index">07</span>
+        <span class="node-label">CONNECT</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- =========================================================================
+       00. CSS-GENERATED ABSTRACT SYSTEM CORE (FLOATING SCROLL ENGINE)
+       ========================================================================= -->
+  <div class="system-core-wrapper" id="system-core-wrapper" aria-hidden="true">
+    <div class="system-core" id="system-core">
+      <!-- Outer Concentric Orbit -->
+      <div class="core-orbit core-orbit-outer">
+        <div class="orbit-particle p1"></div>
+        <div class="orbit-particle p2"></div>
+      </div>
+      <!-- Middle Asymmetric Ellipse -->
+      <div class="core-orbit core-orbit-mid">
+        <div class="orbit-marker m1"></div>
+        <div class="orbit-marker m2"></div>
+      </div>
+      <!-- Inner Precision Ring -->
+      <div class="core-orbit core-orbit-inner">
+        <div class="inner-crosshairs"></div>
+      </div>
+      <!-- Core Pulsing Node -->
+      <div class="core-nucleus">
+        <div class="nucleus-glow"></div>
+        <div class="nucleus-dot"></div>
+      </div>
+      <!-- Wow Moment 1 Orbiting Split Nodes (Code, Ideas, Systems, People) -->
+      <div class="split-nodes-cluster" id="split-cluster">
+        <div class="split-node sn-code"><span>CODE</span></div>
+        <div class="split-node sn-ideas"><span>IDEAS</span></div>
+        <div class="split-node sn-systems"><span>SYSTEMS</span></div>
+        <div class="split-node sn-people"><span>PEOPLE</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MAIN SYSTEM VIEWPORT
+       ========================================================================= -->
+  <main id="main-system-flow">
+
+    <!-- =======================================================================
+         HERO: GIANT TYPOGRAPHIC COMPOSITION
+         ======================================================================= -->
+    <section class="sys-section hero-section" id="hero">
+      <div class="sys-container hero-container">
+        
+        <!-- Header Metadata Bar -->
+        <div class="hero-meta-bar">
+          <div class="meta-tag-group">
+            <span class="signal-tag"><span class="signal-indicator"></span>OPERATING ARCHITECTURE</span>
+            <span class="meta-spec">VER: 2026.1 / ACTIVE</span>
+          </div>
+          <div class="meta-status-pill">
+            <span class="status-indicator"></span>
+            <span class="status-text">STATUS: AVAILABLE FOR MEANINGFUL WORK</span>
+          </div>
+        </div>
+
+        <!-- Giant Typographic Monolith -->
+        <div class="hero-monolith">
+          <h1 class="hero-title" aria-label="MD NAZMUL HASAN FAHIM">
+            <span class="monolith-line line-1">MD</span>
+            <span class="monolith-line line-2">NAZMUL</span>
+            <span class="monolith-line line-3">HASAN</span>
+            <span class="monolith-line line-4">FAHIM</span>
+          </h1>
+
+          <!-- Surrounding Technical Metadata Floating Grid -->
+          <div class="hero-spec-grid">
+            <div class="spec-block spec-left">
+              <span class="spec-num">001</span>
+              <span class="spec-label">DOMAIN</span>
+              <span class="spec-val">SOFTWARE ENGINEERING</span>
+              <span class="spec-detail">SYSTEM ARCHITECTURE &amp; LOW-LEVEL COMPUTATION</span>
+            </div>
+            <div class="spec-block spec-mid">
+              <span class="spec-num">002</span>
+              <span class="spec-label">SYNTHESIS</span>
+              <span class="spec-val">PROGRAMMING &amp; PEDAGOGY</span>
+              <span class="spec-detail">ACM INSTRUCTOR • ALGORITHMIC THINKING</span>
+            </div>
+            <div class="spec-block spec-right">
+              <span class="spec-num">003</span>
+              <span class="spec-label">GOVERNANCE</span>
+              <span class="spec-val">STUDENT LEADERSHIP</span>
+              <span class="spec-detail">ADDL. CO-CURRICULAR SECRETARY</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Bottom Action Indicator -->
+        <div class="hero-footer-bar">
+          <a href="#identity" class="scroll-trigger-link">
+            <span class="scroll-label">EXPLORE SYSTEM</span>
+            <span class="scroll-arrow">↓</span>
+          </a>
+          <div class="hero-coords-telemetry">
+            <span>DISCIPLINES: BUILD • SOLVE • TEACH</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         01 / IDENTITY
+         ======================================================================= -->
+    <section class="sys-section" id="identity">
+      <div class="sys-container">
+        
+        <div class="section-badge">
+          <span class="section-num">01</span>
+          <span class="section-slash">/</span>
+          <span class="section-name">IDENTITY</span>
+        </div>
+
+        <div class="editorial-manifesto">
+          <h2 class="manifesto-headline">
+            I BUILD.<br />
+            I SOLVE.<br />
+            I TEACH.
+          </h2>
+          <div class="manifesto-body">
+            <p class="manifesto-lead">
+              A Software Engineering student pairing low-level systems discipline with educational clarity and student leadership.
+            </p>
+            <p class="manifesto-detail">
+              I operate at the intersection of technical rigor and human communication. While many engineers treat software purely as syntax, I treat computation as an interconnected system: from memory-safe pointer manipulation in C and C++ to relational database structures and automated Python workflows. Over the last 5+ years, I have translated complex algorithmic theory into teachable mental models for 10+ students and cohorts as an ACM Instructor.
+            </p>
+          </div>
+        </div>
+
+        <!-- Personal Metrics: Minimalist Data Viz -->
+        <div class="metrics-grid">
+          <div class="metric-item">
+            <div class="metric-val" data-counter="3.91" data-decimals="2">3.91</div>
+            <div class="metric-label">CGPA</div>
+            <div class="metric-sub">Distinction Scale 4.00</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val" data-counter="5" data-suffix="+">5+</div>
+            <div class="metric-label">YEARS TEACHING</div>
+            <div class="metric-sub">Private Tutoring &amp; Academics</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val" data-counter="10" data-suffix="+">10+</div>
+            <div class="metric-label">STUDENTS MENTORED</div>
+            <div class="metric-sub">One-on-One Problem Solving</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-val text-accent">ACM</div>
+            <div class="metric-label">INSTRUCTOR</div>
+            <div class="metric-sub">Departmental Appointment</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         02 / SYSTEM: INTERACTIVE COGNITIVE DIAGRAM
+         ======================================================================= -->
+    <section class="sys-section" id="system">
+      <div class="sys-container">
+        
+        <div class="section-badge">
+          <span class="section-num">02</span>
+          <span class="section-slash">/</span>
+          <span class="section-name">SYSTEM ARCHITECTURE</span>
+        </div>
+
+        <div class="system-intro-header">
+          <h2 class="sys-headline">HOW THE MIND OPERATES.</h2>
+          <p class="sys-sub">An interactive blueprint mapping cognitive loops from problem perception to code, instruction, and community impact. Hover any node to observe telemetry.</p>
+        </div>
+
+        <!-- Interactive Diagram (HTML / CSS pure geometry) -->
+        <div class="cognitive-system-diagram" id="cognitive-diagram">
+          
+          <!-- Central Origin Node -->
+          <div class="diagram-center-node" id="center-node">
+            <div class="center-pulse"></div>
+            <div class="center-core">
+              <span class="center-title">FAHIM</span>
+              <span class="center-sub">ORIGIN</span>
+            </div>
+          </div>
+
+          <!-- Orbiting Cognitive Satellite Nodes -->
+          <div class="diagram-nodes-ring">
+            
+            <div class="diag-node" data-node="code" style="--angle: 0deg;">
+              <div class="diag-link-line"></div>
+              <button class="node-pill" aria-label="Code Node">
+                <span class="pill-dot"></span>
+                <span class="pill-name">CODE</span>
+              </button>
+            </div>
+
+            <div class="diag-node" data-node="problem" style="--angle: 60deg;">
+              <div class="diag-link-line"></div>
+              <button class="node-pill" aria-label="Problem Node">
+                <span class="pill-dot"></span>
+                <span class="pill-name">PROBLEM</span>
+              </button>
+            </div>
+
+            <div class="diag-node" data-node="learn" style="--angle: 120deg;">
+              <div class="diag-link-line"></div>
+              <button class="node-pill" aria-label="Learn Node">
+                <span class="pill-dot"></span>
+                <span class="pill-name">LEARN</span>
+              </button>
+            </div>
+
+            <div class="diag-node" data-node="teach" style="--angle: 180deg;">
+              <div class="diag-link-line"></div>
+              <button class="node-pill" aria-label="Teach Node">
+                <span class="pill-dot"></span>
+                <span class="pill-name">TEACH</span>
+              </button>
+            </div>
+
+            <div class="diag-node" data-node="build" style="--angle: 240deg;">
+              <div class="diag-link-line"></div>
+              <button class="node-pill" aria-label="Build Node">
+                <span class="pill-dot"></span>
+                <span class="pill-name">BUILD</span>
+              </button>
+            </div>
+
+            <div class="diag-node" data-node="lead" style="--angle: 300deg;">
+              <div class="diag-link-line"></div>
+              <button class="node-pill" aria-label="Lead Node">
+                <span class="pill-dot"></span>
+                <span class="pill-name">LEAD</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Real-Time Telemetry Readout Console -->
+          <div class="diagram-telemetry-console">
+            <div class="console-header">
+              <span class="console-label">NODE TELEMETRY</span>
+              <span class="console-status" id="console-node-id">ALL_CHANNELS_ACTIVE</span>
+            </div>
+            <div class="console-output" id="console-readout">
+              Select or hover over any node in the system topology to trace logic, invariants, and implementation pathways.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         03 / BUILD: TECHNICAL CAPABILITIES & WOW MOMENT 1
+         ======================================================================= -->
+    <section class="sys-section" id="build">
+      <div class="sys-container">
+        
+        <div class="section-badge">
+          <span class="section-num">03</span>
+          <span class="section-slash">/</span>
+          <span class="section-name">BUILD</span>
+        </div>
+
+        <div class="build-headline-container">
+          <h2 class="sys-headline">TURNING PROBLEMS INTO SYSTEMS.</h2>
+          <p class="sys-sub">Core technological proficiencies formatted as a horizontal precision index without subjective percentages.</p>
+        </div>
+
+        <!-- Signature Interaction 1 Stage: System Core Splitting -->
+        <div class="build-core-stage" id="build-stage" aria-hidden="true">
+          <div class="stage-tag">SYSTEM CORE CONVERGENCE</div>
+          <div class="convergence-display">
+            <span class="stage-state state-split">SYSTEM CORE DECONSTRUCTED [4 NODES]</span>
+            <span class="stage-state state-merged">CONVERGED → BUILD</span>
+          </div>
+        </div>
+
+        <!-- Horizontal Technical Index -->
+        <div class="technical-index-table">
+          <div class="tech-row">
+            <div class="tech-id">TECH / 01</div>
+            <div class="tech-title">C</div>
+            <div class="tech-role">POINTER MECHANICS • MEMORY SAFETY • SYSTEM PRIMITIVES</div>
+            <div class="tech-markers" aria-hidden="true">
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+            </div>
+          </div>
+
+          <div class="tech-row">
+            <div class="tech-id">TECH / 02</div>
+            <div class="tech-title">C++</div>
+            <div class="tech-role">ALGORITHMIC DESIGN • STL INTERNALS • INVARIANT ASSERTIONS</div>
+            <div class="tech-markers" aria-hidden="true">
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+            </div>
+          </div>
+
+          <div class="tech-row">
+            <div class="tech-id">TECH / 03</div>
+            <div class="tech-title">PYTHON</div>
+            <div class="tech-role">CLI PIPELINES • DATA INGESTION • AUTOMATION UTILITIES</div>
+            <div class="tech-markers" aria-hidden="true">
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+            </div>
+          </div>
+
+          <div class="tech-row">
+            <div class="tech-id">TECH / 04</div>
+            <div class="tech-title">DATABASES</div>
+            <div class="tech-role">3NF SCHEMA NORMALIZATION • SQL OPTIMIZATION • ER MODELING</div>
+            <div class="tech-markers" aria-hidden="true">
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+            </div>
+          </div>
+
+          <div class="tech-row">
+            <div class="tech-id">TECH / 05</div>
+            <div class="tech-title">MICROSOFT OFFICE</div>
+            <div class="tech-role">STRUCTURED SPREADSHEETS • ADMINISTRATIVE DIGESTS • ADVANCED FORMULAS</div>
+            <div class="tech-markers" aria-hidden="true">
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+              <span class="marker active"></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         04 / WORK: VERTICAL PROJECT ARCHIVE
+         ======================================================================= -->
+    <section class="sys-section" id="work">
+      <div class="sys-container">
+        
+        <div class="section-badge">
+          <span class="section-num">04</span>
+          <span class="section-slash">/</span>
+          <span class="section-name">WORK ARCHIVE</span>
+        </div>
+
+        <div class="archive-header">
+          <h2 class="sys-headline">ENGINEERED RECORD.</h2>
+          <p class="sys-sub">Verified case studies examining algorithmic efficiency, normalized relational schemas, and programmatic automation.</p>
+        </div>
+
+        <!-- Vertical Monolithic Project Panels -->
+        <div class="project-archive-flow">
+
+          <!-- PROJECT 001 -->
+          <article class="archive-entry project-hover-target" data-project="flagship">
+            <div class="entry-meta">
+              <span class="entry-id">WORK / 001</span>
+              <span class="entry-cat">ALGORITHMS &amp; DATA STRUCTURES</span>
+            </div>
+            
+            <div class="entry-content">
+              <h3 class="entry-title">Algorithmic Problem Solving &amp; Data Structures Hub</h3>
+              <p class="entry-summary">
+                High-performance C++ and C algorithmic architecture engineered for computational efficiency, cache awareness, and invariant verification. Achieved 100% leak-free execution across randomized stress harnesses.
+              </p>
+              
+              <div class="entry-tech-list">
+                <span class="tech-tag">C++</span>
+                <span class="tech-tag">C</span>
+                <span class="tech-tag">STL INTERNALS</span>
+                <span class="tech-tag">DYNAMIC MEMORY</span>
+                <span class="tech-tag">OPTIMIZATION</span>
+              </div>
+
+              <div class="entry-action-row">
+                <button class="btn-case-trigger" data-open-study="flagship" aria-label="Open Case Study for Algorithmic Hub">
+                  <span>[ VIEW CASE STUDY → ]</span>
+                </button>
+                <a href="https://github.com/nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="entry-ext-link">
+                  <span>GITHUB ARCHIVE ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 002 -->
+          <article class="archive-entry project-hover-target" data-project="database">
+            <div class="entry-meta">
+              <span class="entry-id">WORK / 002</span>
+              <span class="entry-cat">DATABASE ENGINEERING &amp; RELATIONAL DESIGN</span>
+            </div>
+            
+            <div class="entry-content">
+              <h3 class="entry-title">Structured Academic Data &amp; Evaluation Model</h3>
+              <p class="entry-summary">
+                Normalized relational schema and stored query engine for institutional grade tracking, prerequisites enforcement, and automated GPA computation under 3NF standards.
+              </p>
+              
+              <div class="entry-tech-list">
+                <span class="tech-tag">RELATIONAL SQL</span>
+                <span class="tech-tag">3NF NORMALIZATION</span>
+                <span class="tech-tag">QUERY OPTIMIZATION</span>
+                <span class="tech-tag">ER MODELING</span>
+              </div>
+
+              <div class="entry-action-row">
+                <button class="btn-case-trigger" data-open-study="database" aria-label="Open Case Study for Academic Data Model">
+                  <span>[ VIEW CASE STUDY → ]</span>
+                </button>
+                <a href="https://github.com/nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="entry-ext-link">
+                  <span>GITHUB ARCHIVE ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 003 -->
+          <article class="archive-entry project-hover-target" data-project="automation">
+            <div class="entry-meta">
+              <span class="entry-id">WORK / 003</span>
+              <span class="entry-cat">PYTHON SYSTEMS &amp; WORKFLOW AUTOMATION</span>
+            </div>
+            
+            <div class="entry-content">
+              <h3 class="entry-title">Automated Academic Workflow &amp; Utility Suite</h3>
+              <p class="entry-summary">
+                Modular Python command-line utility framework for ingesting irregular campus datasets, sanitizing records via defensive regex schemas, and batch-generating verified rosters.
+              </p>
+              
+              <div class="entry-tech-list">
+                <span class="tech-tag">PYTHON 3</span>
+                <span class="tech-tag">CLI PIPELINE</span>
+                <span class="tech-tag">DATA SANITIZATION</span>
+                <span class="tech-tag">RECORD VALIDATION</span>
+              </div>
+
+              <div class="entry-action-row">
+                <button class="btn-case-trigger" data-open-study="automation" aria-label="Open Case Study for Automation Suite">
+                  <span>[ VIEW CASE STUDY → ]</span>
+                </button>
+                <a href="https://github.com/nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="entry-ext-link">
+                  <span>GITHUB ARCHIVE ↗</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         05 / TEACH: PEDAGOGICAL TIMELINE & WOW MOMENT 2
+         ======================================================================= -->
+    <section class="sys-section" id="teach">
+      <div class="sys-container">
+        
+        <div class="section-badge">
+          <span class="section-num">05</span>
+          <span class="section-slash">/</span>
+          <span class="section-name">TEACH</span>
+        </div>
+
+        <div class="teach-statement-block">
+          <h2 class="teach-large-statement">
+            I DON'T JUST LEARN TECHNOLOGY.<br />
+            I TEACH IT.
+          </h2>
+          <p class="teach-context">
+            Over the past 5+ years, teaching has been my ultimate validation engine. Guiding 10+ private tutoring students and leading departmental sessions as an ACM Instructor proves that if you cannot explain a low-level algorithm from first principles, you do not truly understand it.
+          </p>
+        </div>
+
+        <!-- Signature Interaction 2: Pedagogical Reorganization Stage -->
+        <div class="teach-transformation-stage" id="teach-stage">
+          <div class="stage-tag">SYSTEM REORGANIZATION: ENGINEERING → PEDAGOGY</div>
+          <div class="teach-nodes-flow">
+            <div class="teach-node-item active"><span>LEARN</span></div>
+            <div class="teach-arrow-sep">→</div>
+            <div class="teach-node-item active"><span>EXPLAIN</span></div>
+            <div class="teach-arrow-sep">→</div>
+            <div class="teach-node-item active"><span>MENTOR</span></div>
+            <div class="teach-arrow-sep">→</div>
+            <div class="teach-node-item active"><span>SHARE</span></div>
+          </div>
+        </div>
+
+        <!-- Typographic Pedagogy Ladder -->
+        <div class="pedagogy-ladder">
+          <div class="ladder-step" data-step="1">
+            <span class="step-num">01</span>
+            <span class="step-word">LEARN</span>
+            <span class="step-desc">Absorb fundamental proofs, memory layouts, and algorithmic constraints without shortcuts.</span>
+          </div>
+          <div class="ladder-step-divider">↓</div>
+
+          <div class="ladder-step" data-step="2">
+            <span class="step-num">02</span>
+            <span class="step-word">UNDERSTAND</span>
+            <span class="step-desc">Deconstruct mechanics through edge cases, stress tests, and cache validation.</span>
+          </div>
+          <div class="ladder-step-divider">↓</div>
+
+          <div class="ladder-step" data-step="3">
+            <span class="step-num">03</span>
+            <span class="step-word">EXPLAIN</span>
+            <span class="step-desc">Synthesize theoretical complexity into rebuildable mental models and clear visual metaphors.</span>
+          </div>
+          <div class="ladder-step-divider">↓</div>
+
+          <div class="ladder-step" data-step="4">
+            <span class="step-num">04</span>
+            <span class="step-word">MENTOR</span>
+            <span class="step-desc">Guide emerging engineers one-on-one, diagnosing cognitive debugging hurdles and building self-reliance.</span>
+          </div>
+          <div class="ladder-step-divider">↓</div>
+
+          <div class="ladder-step" data-step="5">
+            <span class="step-num">05</span>
+            <span class="step-word">EMPOWER</span>
+            <span class="step-desc">Create autonomous problem solvers capable of architecting clean systems independently.</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         06 / LEAD: INSTITUTIONAL LEADERSHIP TIMELINE
+         ======================================================================= -->
+    <section class="sys-section" id="lead">
+      <div class="sys-container">
+        
+        <div class="section-badge">
+          <span class="section-num">06</span>
+          <span class="section-slash">/</span>
+          <span class="section-name">LEADERSHIP TIMELINE</span>
+        </div>
+
+        <div class="lead-header">
+          <h2 class="sys-headline">INSTITUTIONAL EXECUTION.</h2>
+          <p class="sys-sub">Bridging student cohorts, faculty administration, and technical initiatives through structured governance.</p>
+        </div>
+
+        <!-- Interactive Vertical Timeline -->
+        <div class="leadership-timeline">
+
+          <!-- Entry 1: ACM Instructor -->
+          <div class="timeline-row active" tabindex="0">
+            <div class="row-spine">
+              <span class="spine-dot"></span>
+              <span class="spine-line"></span>
+            </div>
+            <div class="row-content">
+              <div class="row-header">
+                <span class="row-role">ACM INSTRUCTOR</span>
+                <span class="row-domain">PROGRAMMING INSTRUCTION &amp; WORKSHOPS</span>
+              </div>
+              <div class="row-body">
+                <p>
+                  Selected by faculty to instruct student cohorts in fundamental C/C++ programming and analytical problem-solving. Designed structured workshop agendas, live coded algorithmic traces, and provided hands-on debugging guidance.
+                </p>
+                <div class="row-tags">
+                  <span class="mini-tag">CURRICULUM DESIGN</span>
+                  <span class="mini-tag">LIVE CODE REVIEWS</span>
+                  <span class="mini-tag">ALGORITHMIC HARNESS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 2: Additional Co-Curricular Secretary -->
+          <div class="timeline-row" tabindex="0">
+            <div class="row-spine">
+              <span class="spine-dot"></span>
+              <span class="spine-line"></span>
+            </div>
+            <div class="row-content">
+              <div class="row-header">
+                <span class="row-role">ADDITIONAL CO-CURRICULAR SECRETARY</span>
+                <span class="row-domain">STUDENT BODY GOVERNANCE &amp; COORDINATION</span>
+              </div>
+              <div class="row-body">
+                <p>
+                  Spearheaded co-curricular planning, campus event logistical frameworks, and stakeholder communications. Coordinated cross-functional teams between student committees, departmental faculty, and administration to execute successful programs.
+                </p>
+                <div class="row-tags">
+                  <span class="mini-tag">EVENT PLANNING</span>
+                  <span class="mini-tag">TEAM MANAGEMENT</span>
+                  <span class="mini-tag">STAKEHOLDER COMM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Entry 3: 5+ Years Private Mentorship -->
+          <div class="timeline-row" tabindex="0">
+            <div class="row-spine">
+              <span class="spine-dot"></span>
+              <span class="spine-line"></span>
+            </div>
+            <div class="row-content">
+              <div class="row-header">
+                <span class="row-role">ACADEMIC &amp; PROGRAMMING TUTOR</span>
+                <span class="row-domain">5+ YEARS INDEPENDENT MENTORSHIP</span>
+              </div>
+              <div class="row-body">
+                <p>
+                  Guided more than 10+ students across multi-year academic and technical journeys. Built personalized pacing strategies, tailored practice problem sets, and instilled methodical disciplined study habits.
+                </p>
+                <div class="row-tags">
+                  <span class="mini-tag">10+ STUDENTS</span>
+                  <span class="mini-tag">PERSONALIZED CURRICULUM</span>
+                  <span class="mini-tag">INDIVIDUAL PACING</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         EDUCATION & KNOWLEDGE SHARING SECTION
+         ======================================================================= -->
+    <section class="sys-section" id="education-knowledge">
+      <div class="sys-container">
+        
+        <div class="dual-telemetry-grid">
+          
+          <!-- Education Column -->
+          <div class="telemetry-col">
+            <div class="section-badge">
+              <span class="section-num">EDU</span>
+              <span class="section-slash">/</span>
+              <span class="section-name">ACADEMIC FOUNDATION</span>
+            </div>
+            <div class="academic-monolith">
+              <div class="academic-program">SOFTWARE ENGINEERING</div>
+              <div class="academic-cgpa-display">
+                <span class="cgpa-label">CUMULATIVE GPA</span>
+                <span class="cgpa-number">3.91</span>
+                <span class="cgpa-scale">/ 4.00 MAXIMUM DISTINCTION</span>
+              </div>
+              <p class="academic-note">
+                Sustained top-tier standing across foundational computer science, discrete mathematics, data structures, and software engineering coursework. Full institutional transcripts available on verified request.
+              </p>
+            </div>
+          </div>
+
+          <!-- Knowledge Sharing / YouTube Column -->
+          <div class="telemetry-col">
+            <div class="section-badge">
+              <span class="section-num">07</span>
+              <span class="section-slash">/</span>
+              <span class="section-name">KNOWLEDGE SHARING</span>
+            </div>
+            <div class="knowledge-monolith">
+              <div class="knowledge-flow-tags">
+                <span>LEARN</span>
+                <span class="k-arrow">→</span>
+                <span>UNDERSTAND</span>
+                <span class="k-arrow">→</span>
+                <span>EXPLAIN</span>
+                <span class="k-arrow">→</span>
+                <span class="text-accent">SHARE</span>
+              </div>
+              <h3 class="knowledge-title">PUBLIC EDUCATIONAL MEDIA</h3>
+              <p class="knowledge-desc">
+                Authoring educational video content reinforces personal mastery while creating permanent, high-fidelity reference material for students learning programming fundamentals and computational algorithms.
+              </p>
+              <div class="knowledge-action">
+                <a href="https://youtube.com/@nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="knowledge-link-btn">
+                  <span>YOUTUBE CHANNEL: @nazmulfahim3010 ↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         CONTACT: SYSTEM CONNECTION
+         ======================================================================= -->
+    <section class="sys-section" id="connect">
+      <div class="sys-container">
+        
+        <div class="section-badge">
+          <span class="section-num">08</span>
+          <span class="section-slash">/</span>
+          <span class="section-name">SYSTEM CONNECTION</span>
+        </div>
+
+        <div class="connect-monolith">
+          <h2 class="connect-huge-statement">
+            WANT TO<br />
+            BUILD<br />
+            SOMETHING?
+          </h2>
+          <p class="connect-lead">Let's connect.</p>
+
+          <!-- Verified Channels Matrix -->
+          <div class="connect-channels-matrix">
+            
+            <a href="mailto:nazmulfahim3010@gmail.com" class="channel-card">
+              <div class="channel-meta">
+                <span class="channel-id">SIGNAL / 01</span>
+                <span class="channel-type">DIRECT TRANSMISSION</span>
+              </div>
+              <div class="channel-val">nazmulfahim3010@gmail.com</div>
+              <span class="channel-action">OPEN MAIL CLIENT →</span>
+            </a>
+
+            <a href="https://github.com/nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="channel-card">
+              <div class="channel-meta">
+                <span class="channel-id">SIGNAL / 02</span>
+                <span class="channel-type">REPOSITORIES</span>
+              </div>
+              <div class="channel-val">github.com/nazmulfahim3010</div>
+              <span class="channel-action">VIEW CODE ↗</span>
+            </a>
+
+            <a href="https://linkedin.com/in/nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="channel-card">
+              <div class="channel-meta">
+                <span class="channel-id">SIGNAL / 03</span>
+                <span class="channel-type">NETWORK</span>
+              </div>
+              <div class="channel-val">linkedin.com/in/nazmulfahim3010</div>
+              <span class="channel-action">CONNECT ↗</span>
+            </a>
+
+            <a href="https://youtube.com/@nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="channel-card">
+              <div class="channel-meta">
+                <span class="channel-id">SIGNAL / 04</span>
+                <span class="channel-type">BROADCAST</span>
+              </div>
+              <div class="channel-val">youtube.com/@nazmulfahim3010</div>
+              <span class="channel-action">WATCH TUTORIALS ↗</span>
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         FINAL SCENE: DIGITAL FILM ENDING
+         ======================================================================= -->
+    <section class="sys-section final-black-scene" id="system-end">
+      <div class="final-scene-content">
+        <div class="final-name">MD NAZMUL HASAN FAHIM</div>
+        <div class="final-pillars">
+          <span>BUILD.</span>
+          <span>SOLVE.</span>
+          <span>TEACH.</span>
+        </div>
+        <div class="final-system-label">
+          <span class="end-dot"></span>
+          <span>SYSTEM / END</span>
+        </div>
+        <button class="btn-rewind-system" id="btn-rewind" aria-label="Rewind to Top of System">
+          <span>↑ REINITIALIZE TOP</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       SEAMLESS FULL-SCREEN CASE STUDY EXPANSION VIEW (NOT A GENERIC MODAL)
+       ========================================================================= -->
+  <div class="case-study-fullscreen" id="case-study-view" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="case-study-hud-bar">
+      <div class="hud-left">
+        <span class="case-indicator">SYSTEM / ARCHIVE EXPANSION</span>
+        <span class="case-id-display" id="cs-id">WORK / 001</span>
+      </div>
+      <button class="btn-close-case" id="btn-close-case" aria-label="Close Case Study Expansion">
+        <span>CLOSE [ESC]</span>
+        <span class="close-symbol">✕</span>
+      </button>
+    </div>
+
+    <div class="case-study-scroll-container">
+      <div class="case-study-container">
+        
+        <!-- Case Study Header -->
+        <header class="cs-header">
+          <div class="cs-category" id="cs-cat">ALGORITHMIC ARCHITECTURE</div>
+          <h2 class="cs-headline" id="cs-title">Case Study Title</h2>
+          <div class="cs-tech-strip" id="cs-tech-strip"></div>
+        </header>
+
+        <!-- 7-Part Engineering Narrative -->
+        <div class="cs-grid-sections">
+          
+          <div class="cs-block">
+            <span class="cs-section-id">01 / PROBLEM</span>
+            <p class="cs-body" id="cs-problem">Problem description.</p>
+          </div>
+
+          <div class="cs-block">
+            <span class="cs-section-id">02 / APPROACH</span>
+            <p class="cs-body" id="cs-approach">Approach description.</p>
+          </div>
+
+          <div class="cs-block">
+            <span class="cs-section-id">03 / TECHNOLOGY</span>
+            <p class="cs-body" id="cs-tech">Technology breakdown.</p>
+          </div>
+
+          <div class="cs-block">
+            <span class="cs-section-id">04 / IMPLEMENTATION</span>
+            <p class="cs-body" id="cs-impl">Implementation architecture.</p>
+          </div>
+
+          <div class="cs-block">
+            <span class="cs-section-id">05 / RESULT</span>
+            <p class="cs-body" id="cs-result">Verified results.</p>
+          </div>
+
+          <div class="cs-block">
+            <span class="cs-section-id">06 / LESSONS</span>
+            <p class="cs-body" id="cs-lessons">Key takeaways.</p>
+          </div>
+
+          <div class="cs-block cs-block-full">
+            <span class="cs-section-id">07 / REPOSITORIES &amp; LINKS</span>
+            <div class="cs-links-row" id="cs-links">
+              <a href="https://github.com/nazmulfahim3010" target="_blank" rel="noopener noreferrer" class="cs-link-pill">
+                <span>VIEW GITHUB REPOSITORY ↗</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="./main.js"></script>
+</body>
+</html>
